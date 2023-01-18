@@ -136,7 +136,13 @@ def show_tables(connection):
         return z
     except mysql.connector.Error as err:
         print(f"Something went wrong: {err}")
-
+        
+def close(connection):
+	try:
+		connection.close()
+		print(f"Connection Closed")
+	except mysql.connector.Error as err:
+		print(f"Something went wrong: {err}")
 
 # conn = connect("localhost", "root", "", "jamal")
 # val = [
