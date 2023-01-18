@@ -76,7 +76,7 @@ def insert(connection, table, param, values):
         print(f"Something went wrong: {err}")
 
 
-def select(connection, table, param):
+async def select(connection, table, param):
     try:
         cur = connection.cursor()
         cur.execute(f"SELECT {param} FROM {table}")
@@ -136,13 +136,15 @@ def show_tables(connection):
         return z
     except mysql.connector.Error as err:
         print(f"Something went wrong: {err}")
-        
+
+
 def close(connection):
-	try:
-		connection.close()
-		print(f"Connection Closed")
-	except mysql.connector.Error as err:
-		print(f"Something went wrong: {err}")
+    try:
+        connection.close()
+        print("Connection Closeds")
+    except mysql.connector.Error as err:
+        print(f"Something went wrong: {err}")
+
 
 # conn = connect("localhost", "root", "", "jamal")
 # val = [
@@ -157,3 +159,4 @@ def close(connection):
 # update(conn, "customers", "name", "Amy", "Melinda")
 # print(show_database(conn))
 # print(show_tables(conn))
+
